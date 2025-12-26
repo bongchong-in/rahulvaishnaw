@@ -1,0 +1,178 @@
+:root {
+    --neon-blue: #00f3ff;
+    --mythic-gold: #ffd700;
+    --void-black: #050505;
+    --crimson: #ff003c;
+    --term-green: #0f0;
+}
+
+body {
+    background-color: var(--void-black);
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    overscroll-behavior-y: none;
+    min-height: 100vh;
+}
+
+.font-cyber { font-family: 'Orbitron', sans-serif; }
+.font-mythic { font-family: 'Cinzel', serif; }
+.font-term { font-family: 'Share Tech Mono', monospace; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-blue); }
+
+/* --- GLITCH EFFECT --- */
+.glitch-wrapper { position: relative; display: inline-block; }
+.glitch {
+    position: relative;
+    color: white;
+    font-weight: 900;
+    z-index: 1;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--void-black);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--crimson);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--neon-blue);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(14px, 9999px, 127px, 0); }
+    20% { clip: rect(113px, 9999px, 11px, 0); }
+    40% { clip: rect(18px, 9999px, 107px, 0); }
+    60% { clip: rect(13px, 9999px, 67px, 0); }
+    80% { clip: rect(148px, 9999px, 91px, 0); }
+    100% { clip: rect(48px, 9999px, 91px, 0); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    20% { clip: rect(135px, 9999px, 140px, 0); }
+    40% { clip: rect(31px, 9999px, 45px, 0); }
+    60% { clip: rect(98px, 9999px, 20px, 0); }
+    80% { clip: rect(18px, 9999px, 5px, 0); }
+    100% { clip: rect(122px, 9999px, 6px, 0); }
+}
+
+/* Hex Background */
+.hex-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-opacity='0.03' fill='%2300f3ff' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Form Input Styling */
+.term-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    color: var(--neon-blue);
+    font-family: 'Share Tech Mono', monospace;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px; 
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+.term-input:focus {
+    outline: none;
+    border-bottom-color: var(--neon-blue);
+    box-shadow: 0 4px 6px -6px rgba(0, 243, 255, 0.5);
+}
+
+/* Custom Checkbox */
+.cyber-check {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #555;
+    background: #000;
+    cursor: pointer;
+    position: relative;
+}
+.cyber-check:checked {
+    background: var(--neon-blue);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Vendor Button */
+.vendor-btn {
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    background: rgba(0, 243, 255, 0.05);
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #00f3ff;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+.vendor-btn:hover {
+    background: #00f3ff;
+    color: #000;
+}
+
+.whatsapp-icon-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--term-green);
+    border-radius: 9999px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ping-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background-color: var(--term-green);
+    opacity: 0.2;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+    75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Mobile Menu */
+#mobile-menu {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.menu-open {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+.menu-closed {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
