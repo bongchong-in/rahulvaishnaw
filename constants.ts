@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
     meta: {
         title: "DHARMA.OS",
         navbarTitle: { text: "DHARMA", highlight: ".OS" },
-        url: "https://rahulvaishnav.edgentiq.com",
+        url: "https://rahulvaishnaw.edgentiq.com",
         seo: {
             title: "Dharma's Last Son | The Indian Isekai Project",
             description: "The novel that aims to become India's First Isekai Anime. Ancient Mythology meets Cyberpunk Warfare in a clash of multiverses. Written by Rahul Vaishnaw.",
